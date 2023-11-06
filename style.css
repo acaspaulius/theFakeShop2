@@ -1,0 +1,243 @@
+/* Variables */
+:root {
+  --lightGray: #f4f4f4;
+  --darkGray: #999999;
+  --white: #ffffff;
+  --green: #a6c711;
+}
+/* Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+/* Normalization */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li,
+button,
+input,
+div {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
+
+main {
+  min-height: 75vh;
+  padding: 1rem;
+  background-color: var(--lightGray);
+}
+
+header {
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  max-width: 1280px;
+  background-color: var(--white);
+}
+
+header p {
+  color: rgb(0, 0, 0);
+}
+
+h1 {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 4rem;
+}
+#fake,
+#you {
+  color: red;
+}
+
+footer {
+  padding: 2rem;
+  text-align: center;
+  margin: 0 auto;
+  color: dimgray;
+}
+
+section {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+/* -- Product categories list -- */
+
+.product-categories {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 5rem);
+  gap: 1rem;
+  background-color: var(--white);
+}
+
+.product-categories .product-categories__category {
+  border: 1px solid var(--lightGray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.product-categories .product-categories__category.all-products {
+  grid-column: span 2;
+}
+
+.product-categories .product-categories__category:hover {
+  background-color: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+
+/* -- Product category  -- */
+
+.products-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.products {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  background-color: var(--white);
+}
+
+.product-card {
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.511);
+  padding: 10px;
+  width: 100%;
+  background-color: #ffffff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.product-card img {
+  height: 200px;
+  object-fit: contain;
+}
+
+.product-card:hover img {
+  transform: translateY(0);
+}
+
+.product-title {
+  font-weight: bold;
+  padding: 0.5rem 0rem;
+}
+
+.product-category {
+  margin: 0.5rem 0;
+  color: var(--darkGray);
+  font-size: 0.75rem;
+}
+
+.product-price {
+  color: var(--green);
+  padding-bottom: 0.5rem;
+}
+
+.product-description {
+  font-size: 0.8em;
+  display: block;
+  padding: 0.5rem;
+  position: absolute;
+  background-color: #fff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: auto;
+  transition: top 0.4s ease-in-out;
+  border-top: 1px solid rgb(178, 178, 178);
+  border-radius: 10px;
+  box-shadow: 20px 0px 30px rgba(0, 0, 0, 0.3);
+}
+
+.product-card:hover .product-description {
+  top: 60%;
+}
+
+/* -- -- Sidebar -- -- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: var(--white);
+}
+
+.sidebar .sidebar-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.sidebar .sidebar__search {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .sidebar__search input {
+  outline: none;
+  padding: 0.5rem;
+  border: 1px solid var(--darkGray);
+  border-radius: 0.3rem;
+}
+
+.sidebar .sidebar__search input:focus {
+  border-color: var(--green);
+}
+
+.sidebar .sidebar__categories ul,
+.sidebar .sidebar__sort ul {
+  margin-left: 2rem;
+}
+
+.sidebar .sidebar__categories ul li.active,
+.sidebar .sidebar__sort ul li.active {
+  color: var(--green);
+}
+
+.sidebar .sidebar__categories ul li:hover,
+.sidebar .sidebar__sort ul li:hover {
+  transition: transform 200ms ease-in;
+  transform: translateX(3px);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .products {
+    padding: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .products-container {
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 100%;
+  }
+
+  .sidebar {
+    padding: 2rem;
+  }
+}
